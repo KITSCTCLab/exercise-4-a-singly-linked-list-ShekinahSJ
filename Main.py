@@ -84,10 +84,10 @@ class Solution:
                 head = node
             first_list = first_list.next if first_list else None
             second_list = second_list.next if second_list else None
-         if c:
+        if c:
             node = ListNode(1)
             head.next = node
-         return temp
+        return temp
 
 # Do not edit the following code      
 # Create an instance for LinkedList
