@@ -31,7 +31,7 @@ class LinkedList:
         # Write code here
         newNode=Node(data)
         if self.head==None:
-            self.head=NewNode
+            self.head=newNode
         else:
             temp=self.head
             while (temp.next!=None):
@@ -61,7 +61,33 @@ class Solution:
         :return: returns the sum as a linked list
         """
         # Write code here
-        
+        head = None
+        temp = None
+        c = 0
+        while first_list or second_list:
+            if not first_list:
+                a= 0
+            else:
+                a = first_list.val
+            if not second_list:
+                b=0
+            else:
+                b = second_list.val
+            n = a +b + c
+            c = 1 if n>9 else 0
+            node = ListNode(n%10)
+            if not head:
+                head = node
+                temp = node
+            else:
+                head.next = node
+                head = node
+            first_list = first_list.next if first_list else None
+            second_list = second_list.next if second_list else None
+         if c:
+            node = ListNode(1)
+            head.next = node
+         return temp
 
 # Do not edit the following code      
 # Create an instance for LinkedList
