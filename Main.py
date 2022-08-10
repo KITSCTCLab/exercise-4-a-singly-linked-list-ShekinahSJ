@@ -68,11 +68,11 @@ class Solution:
             if not first_list:
                 a= 0
             else:
-                a = first_list.val
+                a = first_list.data
             if not second_list:
                 b=0
             else:
-                b = second_list.val
+                b = second_list.data
             n = a +b + c
             c = 1 if n>9 else 0
             node = ListNode(n%10)
