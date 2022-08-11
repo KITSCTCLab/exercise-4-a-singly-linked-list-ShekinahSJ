@@ -54,40 +54,32 @@ class Solution:
     """
     Provide necessary documentation
     """
-    def addTwoNumbers(self, first_list: Optional[LinkedList], second_list: Optional[LinkedList]) -> Optional[LinkedList]:
+    def addTwoNumbers(self, first_list: Optional[LinkedList], second_list: Optional[LinkedList]) -> Optional[
+        LinkedList]:
         """
         :param first_list: Linkedlist with non-negative integers
         :param second_list: Linkedlist with non-negative integers
         :return: returns the sum as a linked list
         """
-        # Write code here
-        head = None
-        temp = None
-        c = 0
-        while first_list or second_list:
-            if not first_list:
-                a= 0
-            else:
-                a = first_list.Node(data)
-            if not second_list:
-                b=0
-            else:
-                b = second_list.Node(data)
-            n = a +b + c
-            c = 1 if n>9 else 0
-            node = ListNode(n%10)
-            if not head:
-                head = node
-                temp = node
-            else:
-                head.next = node
-                head = node
-            first_list = first_list.next if first_list else None
-            second_list = second_list.next if second_list else None
-        if c:
-            node = ListNode(1)
-            head.next = node
-        return temp
+        result = self.get_num(first_list) + self.get_num(second_list)
+        sum_list = LinkedList()
+        for digit in list(map(int, str(result)[::-1])):
+            sum_list.insert_at_end(digit)
+        return sum_list
+
+    def get_num(self, l: Optional[LinkedList]) -> int:
+        """
+        :param l: LinkedList with non-negative integers
+        :return: returns digits of the list as a single integer
+        """
+        curr = l.head
+        if curr is None:
+            return 0
+        num = ""
+        while curr is not None:
+            num = str(curr.data) + num
+            curr = curr.next
+        return int(num)
 
 # Do not edit the following code      
 # Create an instance for LinkedList
